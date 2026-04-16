@@ -49,10 +49,7 @@ class Recommender:
         return "Explanation placeholder"
 
 def load_songs(csv_path: str) -> List[Song]:
-    """
-    Loads songs from a CSV file.
-    Required by src/main.py
-    """
+    """Load songs from a CSV file and return a list of Song objects."""
     songs = []
     with open(csv_path) as f:
         for row in csv.DictReader(f):
@@ -71,20 +68,7 @@ def load_songs(csv_path: str) -> List[Song]:
     return songs
 
 def score_song(user: UserProfile, song: Song) -> Tuple[float, List[str]]:
-    """
-    Scores a single song against user preferences.
-    Required by recommend_songs() and src/main.py
-
-    Algorithm Recipe:
-      Genre match:  +2.5 points (exact match)
-      Mood match:   +1.5 points (exact match)
-      Energy:       up to 1.0 point  (closeness: 1 - |user - song|)
-      Valence:      up to 0.5 points (closeness, if user provides it)
-      Danceability: up to 0.3 points (closeness, if user provides it)
-      Acoustic:     +0.5 if song acousticness aligns with likes_acoustic
-
-    Max possible: 6.8
-    """
+    """Score a song against a user profile and return (score, reasons)."""
     score = 0.0
     reasons = []
 
@@ -124,10 +108,7 @@ def score_song(user: UserProfile, song: Song) -> Tuple[float, List[str]]:
     return score, reasons
 
 def recommend_songs(user: UserProfile, songs: List[Song], k: int = 5) -> List[Tuple[Song, float, str]]:
-    """
-    Functional implementation of the recommendation logic.
-    Required by src/main.py
-    """
+    """Rank all songs by score for a user and return the top k results."""
     scored = []
     for song in songs:
         score, reasons = score_song(user, song)
