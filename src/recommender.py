@@ -96,7 +96,7 @@ def recommend_songs(user: UserProfile, songs: List[Song], k: int = 5) -> List[Tu
     scored = []
     for song in songs:
         score, reasons = score_song(user, song)
-        explanation = "\n\t".join(["", *reasons])
+        explanation = "\n".join(["", *reasons])
         scored.append((song, score, explanation))
     scored.sort(key=lambda x: x[1], reverse=True)
     return scored[:k]

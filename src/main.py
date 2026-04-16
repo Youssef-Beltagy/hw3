@@ -5,6 +5,7 @@ This file helps you quickly run and test your recommender.
 """
 
 from recommender import load_songs, recommend_songs, UserProfile
+from tabulate import tabulate
 
 
 def main() -> None:
@@ -45,9 +46,9 @@ def main() -> None:
     print("\nTop recommendations:\n")
     for i, recs in enumerate(recommendations):
         print(f"--- Profile {i + 1} ---")
-        for song, score, explanation in recs:
-            print(f"{song.title} - Score: {score:.2f}")
-            print(f"  Because: {explanation}")
+        table = [[song.title, song.artist, song.genre, song.mood, f"{score:.2f}", explanation]
+                 for song, score, explanation in recs]
+        print(tabulate(table, headers=["Title", "Artist", "Genre", "Mood", "Score", "Reasons"], tablefmt="grid"))
         print()
 
 
