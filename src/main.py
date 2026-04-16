@@ -2,18 +2,13 @@
 Command line runner for the Music Recommender Simulation.
 
 This file helps you quickly run and test your recommender.
-
-You will implement the functions in recommender.py:
-- load_songs
-- score_song
-- recommend_songs
 """
 
-from src.recommender import load_songs, recommend_songs, UserProfile
+from recommender import load_songs, recommend_songs, UserProfile
 
 
 def main() -> None:
-    songs = load_songs("data/songs.csv") 
+    songs = load_songs("data/songs.csv")
 
     # --- Taste Profiles ---
     profiles = [
@@ -26,6 +21,7 @@ def main() -> None:
         UserProfile(
             favorite_genre="lofi", favorite_mood="chill", target_energy=0.35,
             likes_acoustic=True, target_valence=0.58, target_danceability=0.55),
+            
         # Profile C: Intense rock listener (workout / driving)
         UserProfile(
             favorite_genre="rock", favorite_mood="intense", target_energy=0.90,
@@ -35,12 +31,11 @@ def main() -> None:
     recommendations = [recommend_songs(user_pref, songs, k=5) for user_pref in profiles]
 
     print("\nTop recommendations:\n")
-    for rec in recommendations:
-        # You decide the structure of each returned item.
-        # A common pattern is: (song, score, explanation)
-        song, score, explanation = rec
-        print(f"{song['title']} - Score: {score:.2f}")
-        print(f"Because: {explanation}")
+    for i, recs in enumerate(recommendations):
+        print(f"--- Profile {i + 1} ---")
+        for song, score, explanation in recs:
+            print(f"{song.title} - Score: {score:.2f}")
+            print(f"  Because: {explanation}")
         print()
 
 
