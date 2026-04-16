@@ -29,6 +29,8 @@ class UserProfile:
     favorite_mood: str
     target_energy: float
     likes_acoustic: bool
+    target_valence: Optional[float] = None
+    target_danceability: Optional[float] = None
 
 class Recommender:
     """
@@ -65,20 +67,70 @@ def load_songs(csv_path: str) -> List[Dict]:
             songs.append(row)
     return songs
 
-def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
+def score_song(user: UserProfile, song: Dict) -> Tuple[float, List[str]]:
     """
     Scores a single song against user preferences.
     Required by recommend_songs() and src/main.py
-    """
-    # TODO: Implement scoring logic using your Algorithm Recipe from Phase 2.
-    # Expected return format: (score, reasons)
-    return []
 
-def recommend_songs(user_prefs: Dict, songs: List[Dict], k: int = 5) -> List[Tuple[Dict, float, str]]:
+    Algorithm Recipe:
+      Genre match:  +2.5 points (exact match)
+      Mood match:   +1.5 points (exact match)
+      Energy:       up to 1.0 point  (closeness: 1 - |user - song|)
+      Valence:      up to 0.5 points (closeness, if user provides it)
+      Danceability: up to 0.3 points (closeness, if user provides it)
+      Acoustic:     +0.5 if song acousticness aligns with likes_acoustic
+
+    Max possible: 6.8
+    """
+    score = 0.0
+    reasons = []
+
+    # Genre: exact match = 2.5 pts
+    if song["genre"] == user.favorite_genre:
+        score += 2.5
+        reasons.append(f"+2.5 genre match ({song['genre']})")
+
+    # Mood: exact match = 1.5 pts
+    if song["mood"] == user.favorite_mood:
+        score += 1.5
+        reasons.append(f"+1.5 mood match ({song['mood']})")
+
+    # Energy: closeness score × 1.0
+    energy_score = 1.0 - abs(user.target_energy - song["energy"])
+    score += energy_score
+    reasons.append(f"+{energy_score:.2f} energy closeness {energy_score:.2f}")
+
+    # Valence: closeness score × 0.5
+    if user.target_valence is not None:
+        val_score = 1.0 - abs(user.target_valence - song["valence"])
+        val_score *= 0.5
+        score += val_score
+        reasons.append(f"+{val_score:.2f} valence closeness {val_score:.2f}")
+
+    # Danceability: closeness score × 0.3
+    if user.target_danceability is not None:
+        dance_score = 1.0 - abs(user.target_danceability - song["danceability"])
+        dance_score *= 0.3
+        score += dance_score 
+        reasons.append(f"+{dance_score * 0.3:.2f} danceability closeness {dance_score:.2f}")
+
+    # Acoustic preference: +0.5 if alignment
+    is_acoustic = song["acousticness"] >= 0.5
+    if user.likes_acoustic == is_acoustic:
+        score += 0.5
+        reasons.append("+0.5 acoustic preference match")
+
+    return score, reasons
+
+def recommend_songs(user: UserProfile, songs: List[Dict], k: int = 5) -> List[Tuple[Dict, float, str]]:
     """
     Functional implementation of the recommendation logic.
     Required by src/main.py
     """
-    # TODO: Implement scoring and ranking logic
-    # Expected return format: (song_dict, score, explanation)
-    return []
+    scored = []
+    for song in songs:
+        score, reasons = score_song(user, song)
+        explanation = "; ".join(reasons) if reasons else "no strong match"
+        scored.append((song, score, explanation))
+    scored.sort(key=lambda x: x[1], reverse=True)
+    return scored[:k]
