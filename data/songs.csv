@@ -1,21 +1,21 @@
-id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness
-1,Sunrise City,Neon Echo,pop,happy,0.82,118,0.84,0.79,0.18
-2,Midnight Coding,LoRoom,lofi,chill,0.42,78,0.56,0.62,0.71
-3,Storm Runner,Voltline,rock,intense,0.91,152,0.48,0.66,0.10
-4,Library Rain,Paper Lanterns,lofi,chill,0.35,72,0.60,0.58,0.86
-5,Gym Hero,Max Pulse,pop,intense,0.93,132,0.77,0.88,0.05
-6,Spacewalk Thoughts,Orbit Bloom,ambient,chill,0.28,60,0.65,0.41,0.92
-7,Coffee Shop Stories,Slow Stereo,jazz,relaxed,0.37,90,0.71,0.54,0.89
-8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22
-9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78
-10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35
-11,Golden Hour,Slow Stereo,indie pop,relaxed,0.45,96,0.78,0.55,0.68
-12,Bass Cathedral,Voltline,electronic,intense,0.95,140,0.42,0.85,0.03
-13,Rainy Window,Paper Lanterns,classical,sad,0.20,66,0.32,0.25,0.95
-14,Late Night Texts,Indigo Parade,r&b,moody,0.55,88,0.63,0.70,0.40
-15,Backroad Summer,Dusty Strings,country,happy,0.68,104,0.80,0.64,0.75
-16,Concrete Jungle,Ray Vox,hip hop,intense,0.88,136,0.52,0.90,0.08
-17,Quiet Morning,Orbit Bloom,ambient,relaxed,0.22,56,0.70,0.30,0.94
-18,Neon Basement,Ray Vox,hip hop,energetic,0.85,128,0.74,0.92,0.06
-19,Velvet Dusk,Neon Echo,synthwave,sad,0.60,98,0.38,0.68,0.28
-20,Campfire Stories,Dusty Strings,country,relaxed,0.33,82,0.75,0.42,0.88
+id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness,popularity,release_decade,mood_tags,instrumentalness,lyrical_theme
+1,Sunrise City,Neon Echo,pop,happy,0.82,118,0.84,0.79,0.18,78,2020s,euphoric|uplifting,0.10,party
+2,Midnight Coding,LoRoom,lofi,chill,0.42,78,0.56,0.62,0.71,45,2020s,dreamy|calm,0.75,introspection
+3,Storm Runner,Voltline,rock,intense,0.91,152,0.48,0.66,0.10,62,2010s,aggressive|powerful,0.15,rebellion
+4,Library Rain,Paper Lanterns,lofi,chill,0.35,72,0.60,0.58,0.86,38,2020s,calm|peaceful,0.80,nature
+5,Gym Hero,Max Pulse,pop,intense,0.93,132,0.77,0.88,0.05,85,2020s,aggressive|euphoric,0.05,party
+6,Spacewalk Thoughts,Orbit Bloom,ambient,chill,0.28,60,0.65,0.41,0.92,22,2010s,dreamy|ethereal,0.95,introspection
+7,Coffee Shop Stories,Slow Stereo,jazz,relaxed,0.37,90,0.71,0.54,0.89,30,2000s,nostalgic|warm,0.40,love
+8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22,55,2010s,nostalgic|melancholic,0.60,introspection
+9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78,50,2020s,calm|focused,0.85,introspection
+10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35,65,2020s,uplifting|warm,0.12,love
+11,Golden Hour,Slow Stereo,indie pop,relaxed,0.45,96,0.78,0.55,0.68,48,2020s,nostalgic|warm,0.20,love
+12,Bass Cathedral,Voltline,electronic,intense,0.95,140,0.42,0.85,0.03,72,2020s,aggressive|euphoric,0.90,party
+13,Rainy Window,Paper Lanterns,classical,sad,0.20,66,0.32,0.25,0.95,18,2010s,melancholic|peaceful,0.92,nature
+14,Late Night Texts,Indigo Parade,r&b,moody,0.55,88,0.63,0.70,0.40,58,2020s,nostalgic|sensual,0.08,love
+15,Backroad Summer,Dusty Strings,country,happy,0.68,104,0.80,0.64,0.75,42,2010s,uplifting|warm,0.15,nature
+16,Concrete Jungle,Ray Vox,hip hop,intense,0.88,136,0.52,0.90,0.08,80,2020s,aggressive|powerful,0.05,rebellion
+17,Quiet Morning,Orbit Bloom,ambient,relaxed,0.22,56,0.70,0.30,0.94,15,2010s,peaceful|ethereal,0.97,nature
+18,Neon Basement,Ray Vox,hip hop,energetic,0.85,128,0.74,0.92,0.06,75,2020s,euphoric|powerful,0.04,party
+19,Velvet Dusk,Neon Echo,synthwave,sad,0.60,98,0.38,0.68,0.28,35,2010s,melancholic|dreamy,0.55,introspection
+20,Campfire Stories,Dusty Strings,country,relaxed,0.33,82,0.75,0.42,0.88,25,2000s,nostalgic|warm,0.30,nature

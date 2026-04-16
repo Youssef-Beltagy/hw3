@@ -24,30 +24,43 @@ def main() -> None:
     profiles = [
         # Profile A: Upbeat pop listener (gym / party)
         UserProfile(
-        favorite_genre="pop", favorite_mood="happy", target_energy=0.85,
-        likes_acoustic=False, target_valence=0.80, target_danceability=0.80),
+            favorite_genre="pop", favorite_mood="happy", target_energy=0.85,
+            likes_acoustic=False, target_valence=0.80, target_danceability=0.80,
+            min_popularity=50, preferred_decade="2020s",
+            preferred_mood_tags=["euphoric", "uplifting"],
+            target_instrumentalness=0.10, preferred_lyrical_theme="party"),
 
         # Profile B: Chill lofi listener (study / focus)
         UserProfile(
             favorite_genre="lofi", favorite_mood="chill", target_energy=0.35,
-            likes_acoustic=True, target_valence=0.58, target_danceability=0.55),
-            
+            likes_acoustic=True, target_valence=0.58, target_danceability=0.55,
+            min_popularity=0, preferred_decade="2020s",
+            preferred_mood_tags=["calm", "dreamy"],
+            target_instrumentalness=0.80, preferred_lyrical_theme="introspection"),
+
         # Profile C: Intense rock listener (workout / driving)
         UserProfile(
             favorite_genre="rock", favorite_mood="intense", target_energy=0.90,
-            likes_acoustic=False, target_valence=0.45, target_danceability=0.70),
+            likes_acoustic=False, target_valence=0.45, target_danceability=0.70,
+            min_popularity=40, preferred_decade="2010s",
+            preferred_mood_tags=["aggressive", "powerful"],
+            target_instrumentalness=0.15, preferred_lyrical_theme="rebellion"),
 
         # Profile D: Mellow jazz listener (evening wind-down)
         UserProfile(
             favorite_genre="jazz", favorite_mood="relaxed", target_energy=0.35,
-            likes_acoustic=True, target_valence=0.72, target_danceability=0.50),
+            likes_acoustic=True, target_valence=0.72, target_danceability=0.50,
+            min_popularity=0, preferred_decade="2000s",
+            preferred_mood_tags=["nostalgic", "warm"],
+            target_instrumentalness=0.40, preferred_lyrical_theme="love"),
 
         # Profile E (adversarial): High energy + sad mood + wants danceability
-        # These preferences conflict — sad songs are rarely high-energy or danceable.
-        # Tests whether the system blindly adds up scores or produces nonsensical results.
         UserProfile(
             favorite_genre="pop", favorite_mood="sad", target_energy=0.95,
-            likes_acoustic=False, target_valence=0.30, target_danceability=0.85)
+            likes_acoustic=False, target_valence=0.30, target_danceability=0.85,
+            min_popularity=60, preferred_decade="2020s",
+            preferred_mood_tags=["melancholic", "powerful"],
+            target_instrumentalness=0.05, preferred_lyrical_theme="introspection")
     ]
 
     recommendations = [recommend_songs(user_pref, songs, k=5, mode=mode) for user_pref in profiles]

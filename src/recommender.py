@@ -9,6 +9,7 @@ class Mode(Enum):
     EXPLORE = "explore"
     DIVERSE = "diverse"
     MOOD = "mood"
+    ADVANCED = "advanced"
 
 
 MODE_DESCRIPTIONS = {
@@ -16,6 +17,7 @@ MODE_DESCRIPTIONS = {
     Mode.EXPLORE: "diverse recommendations by penalizing favorite genre",
     Mode.DIVERSE: "unique artists and genres in results",
     Mode.MOOD: "prioritize mood and energy over genre",
+    Mode.ADVANCED: "Advanced recommendation mode includes additional attributes like song popularity or release decade"
 }
 
 
@@ -36,6 +38,11 @@ class Song:
     valence: float
     danceability: float
     acousticness: float
+    popularity: int
+    release_decade: str
+    mood_tags: List[str]
+    instrumentalness: float
+    lyrical_theme: str
 
 @dataclass
 class UserProfile:
@@ -49,6 +56,11 @@ class UserProfile:
     likes_acoustic: bool
     target_valence: float
     target_danceability: float
+    min_popularity: int              # 0-100, minimum acceptable popularity
+    preferred_decade: str            # e.g. "2020s"
+    preferred_mood_tags: List[str]   # e.g. ["nostalgic", "warm"]
+    target_instrumentalness: float   # 0-1
+    preferred_lyrical_theme: str     # e.g. "love"
 
 def load_songs(csv_path: str) -> List[Song]:
     """Load songs from a CSV file and return a list of Song objects."""
@@ -66,6 +78,11 @@ def load_songs(csv_path: str) -> List[Song]:
                 valence=float(row["valence"]),
                 danceability=float(row["danceability"]),
                 acousticness=float(row["acousticness"]),
+                popularity=int(row["popularity"]),
+                release_decade=row["release_decade"],
+                mood_tags=row["mood_tags"].split("|"),
+                instrumentalness=float(row["instrumentalness"]),
+                lyrical_theme=row["lyrical_theme"],
             ))
     return songs
 
@@ -135,12 +152,101 @@ def score_song_mood(user: UserProfile, song: Song) -> Tuple[float, List[str]]:
         score += 0.5
         reasons.append(f"+0.5 genre match ({song.genre})")
 
+    # Mood tags: +0.5 per overlapping tag (max 2 = 1.0) — weighted higher in mood mode
+    overlap = set(song.mood_tags) & set(user.preferred_mood_tags)
+    if overlap:
+        tag_score = min(len(overlap), 2) * 0.5
+        score += tag_score
+        reasons.append(f"+{tag_score:.2f} mood tags ({', '.join(overlap)})")
+
+    # Instrumentalness: closeness × 0.3
+    inst_score = (1.0 - abs(user.target_instrumentalness - song.instrumentalness)) * 0.3
+    score += inst_score
+    reasons.append(f"+{inst_score:.2f} instrumentalness closeness")
+
+    # Lyrical theme: +0.5 if match
+    if song.lyrical_theme == user.preferred_lyrical_theme:
+        score += 0.5
+        reasons.append(f"+0.5 lyrical theme match ({song.lyrical_theme})")
+
+    return score, reasons
+
+def score_song_advanced(user: UserProfile, song: Song) -> Tuple[float, List[str]]:
+    """Score a song against a user profile and return (score, reasons)."""
+    score = 0.0
+    reasons = []
+
+    # Genre: exact match = 2.5 pts
+    if song.genre == user.favorite_genre:
+        score += 2.5
+        reasons.append(f"+2.5 genre match ({song.genre})")
+
+    # Mood: exact match = 1.5 pts
+    if song.mood == user.favorite_mood:
+        score += 1.5
+        reasons.append(f"+1.5 mood match ({song.mood})")
+
+    # Energy: closeness score × 1.0
+    energy_score = 1.0 - abs(user.target_energy - song.energy)
+    score += energy_score
+    reasons.append(f"+{energy_score:.2f} energy closeness")
+
+    # Valence: closeness score × 0.5
+    val_score = 1.0 - abs(user.target_valence - song.valence)
+    val_score *= 0.5
+    score += val_score
+    reasons.append(f"+{val_score:.2f} valence closeness")
+
+    # Danceability: closeness score × 0.3
+    dance_score = 1.0 - abs(user.target_danceability - song.danceability)
+    dance_score *= 0.3
+    score += dance_score 
+    reasons.append(f"+{dance_score:.2f} danceability closeness")
+
+    # Acoustic preference: +0.5 if alignment
+    is_acoustic = song.acousticness >= 0.5
+    if user.likes_acoustic == is_acoustic:
+        score += 0.5
+        reasons.append("+0.5 acoustic preference match")
+
+    # Popularity: +0.5 if song meets minimum popularity threshold
+    if song.popularity >= user.min_popularity:
+        score += 0.5
+        reasons.append(f"+0.5 popularity ({song.popularity} >= {user.min_popularity})")
+
+    # Decade: +0.75 if release decade matches
+    if song.release_decade == user.preferred_decade:
+        score += 0.75
+        reasons.append(f"+0.75 decade match ({song.release_decade})")
+
+    # Mood tags: +0.3 per overlapping tag (max 2 tags = 0.6)
+    overlap = set(song.mood_tags) & set(user.preferred_mood_tags)
+    if overlap:
+        tag_score = min(len(overlap), 2) * 0.3
+        score += tag_score
+        reasons.append(f"+{tag_score:.2f} mood tags ({', '.join(overlap)})")
+
+    # Instrumentalness: closeness × 0.4
+    inst_score = (1.0 - abs(user.target_instrumentalness - song.instrumentalness)) * 0.4
+    score += inst_score
+    reasons.append(f"+{inst_score:.2f} instrumentalness closeness")
+
+    # Lyrical theme: +0.75 if match
+    if song.lyrical_theme == user.preferred_lyrical_theme:
+        score += 0.75
+        reasons.append(f"+0.75 lyrical theme match ({song.lyrical_theme})")
+
     return score, reasons
 
 def recommend_songs(user: UserProfile, songs: List[Song], k: int = 5, mode: Mode = Mode.DEFAULT) -> List[Tuple[Song, float, str]]:
     """Rank all songs by score for a user and return the top k results."""
     scored = []
-    scoring_func = score_song_mood if mode == Mode.MOOD else score_song
+    scoring_func = score_song
+    if mode == Mode.MOOD:
+        scoring_func = score_song_mood
+    elif mode == Mode.ADVANCED:
+        scoring_func = score_song_advanced
+
     for song in songs:
         score, reasons = scoring_func(user, song)
         scored.append((song, score, reasons))
