@@ -8,12 +8,14 @@ class Mode(Enum):
     DEFAULT = "default"
     EXPLORE = "explore"
     DIVERSE = "diverse"
+    MOOD = "mood"
 
 
 MODE_DESCRIPTIONS = {
     Mode.DEFAULT: "closest matches based on score",
     Mode.EXPLORE: "diverse recommendations by penalizing favorite genre",
     Mode.DIVERSE: "unique artists and genres in results",
+    Mode.MOOD: "prioritize mood and energy over genre",
 }
 
 
@@ -85,19 +87,19 @@ def score_song(user: UserProfile, song: Song) -> Tuple[float, List[str]]:
     # Energy: closeness score × 1.0
     energy_score = 1.0 - abs(user.target_energy - song.energy)
     score += energy_score
-    reasons.append(f"+{energy_score:.2f} energy closeness {energy_score:.2f}")
+    reasons.append(f"+{energy_score:.2f} energy closeness")
 
     # Valence: closeness score × 0.5
     val_score = 1.0 - abs(user.target_valence - song.valence)
     val_score *= 0.5
     score += val_score
-    reasons.append(f"+{val_score:.2f} valence closeness {val_score:.2f}")
+    reasons.append(f"+{val_score:.2f} valence closeness")
 
     # Danceability: closeness score × 0.3
     dance_score = 1.0 - abs(user.target_danceability - song.danceability)
     dance_score *= 0.3
     score += dance_score 
-    reasons.append(f"+{dance_score:.2f} danceability closeness {dance_score:.2f}")
+    reasons.append(f"+{dance_score:.2f} danceability closeness")
 
     # Acoustic preference: +0.5 if alignment
     is_acoustic = song.acousticness >= 0.5
@@ -107,11 +109,40 @@ def score_song(user: UserProfile, song: Song) -> Tuple[float, List[str]]:
 
     return score, reasons
 
+def score_song_mood(user: UserProfile, song: Song) -> Tuple[float, List[str]]:
+    """Score a song prioritizing mood and energy over genre."""
+    score = 0.0
+    reasons = []
+
+    # Mood: dominant factor = 3.0 pts
+    if song.mood == user.favorite_mood:
+        score += 3.0
+        reasons.append(f"+3.0 mood match ({song.mood})")
+
+    # Energy: high weight = × 2.0
+    energy_score = 1.0 - abs(user.target_energy - song.energy)
+    energy_score *= 2.0
+    score += energy_score
+    reasons.append(f"+{energy_score:.2f} energy closeness")
+
+    # Valence: × 1.0
+    val_score = 1.0 - abs(user.target_valence - song.valence)
+    score += val_score
+    reasons.append(f"+{val_score:.2f} valence closeness")
+
+    # Genre: minor bonus = 0.5 pts
+    if song.genre == user.favorite_genre:
+        score += 0.5
+        reasons.append(f"+0.5 genre match ({song.genre})")
+
+    return score, reasons
+
 def recommend_songs(user: UserProfile, songs: List[Song], k: int = 5, mode: Mode = Mode.DEFAULT) -> List[Tuple[Song, float, str]]:
     """Rank all songs by score for a user and return the top k results."""
     scored = []
+    scoring_func = score_song_mood if mode == Mode.MOOD else score_song
     for song in songs:
-        score, reasons = score_song(user, song)
+        score, reasons = scoring_func(user, song)
         scored.append((song, score, reasons))
 
     if mode == Mode.EXPLORE:
