@@ -4,11 +4,18 @@ Command line runner for the Music Recommender Simulation.
 This file helps you quickly run and test your recommender.
 """
 
-from recommender import load_songs, recommend_songs, UserProfile
+from recommender import load_songs, recommend_songs, UserProfile, Mode
 from tabulate import tabulate
+import argparse
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Music Recommender Simulation")
+    parser.add_argument("--mode", choices=[m.value for m in Mode], default=Mode.DEFAULT.value,
+                        help="default: closest matches; explore: diverse recommendations by penalizing favorites")
+    args = parser.parse_args()
+    mode = Mode(args.mode)
+
     songs = load_songs("data/songs.csv")
 
     # --- Taste Profiles ---
@@ -41,7 +48,7 @@ def main() -> None:
             likes_acoustic=False, target_valence=0.30, target_danceability=0.85)
     ]
 
-    recommendations = [recommend_songs(user_pref, songs, k=5) for user_pref in profiles]
+    recommendations = [recommend_songs(user_pref, songs, k=5, mode=mode) for user_pref in profiles]
 
     print("\nTop recommendations:\n")
     for i, recs in enumerate(recommendations):

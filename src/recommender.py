@@ -1,6 +1,13 @@
 import csv
+from enum import Enum
 from typing import List, Dict, Tuple, Optional
 from dataclasses import dataclass
+
+
+class Mode(Enum):
+    DEFAULT = "default"
+    EXPLORE = "explore"
+
 
 @dataclass
 class Song:
@@ -91,12 +98,20 @@ def score_song(user: UserProfile, song: Song) -> Tuple[float, List[str]]:
 
     return score, reasons
 
-def recommend_songs(user: UserProfile, songs: List[Song], k: int = 5) -> List[Tuple[Song, float, str]]:
+def recommend_songs(user: UserProfile, songs: List[Song], k: int = 5, mode: Mode = Mode.DEFAULT) -> List[Tuple[Song, float, str]]:
     """Rank all songs by score for a user and return the top k results."""
     scored = []
     for song in songs:
         score, reasons = score_song(user, song)
         explanation = "\n".join(["", *reasons])
         scored.append((song, score, explanation))
+
+    if mode == Mode.EXPLORE:
+        # Penalize songs that match the user's genre to surface diverse results
+        for i, (song, score, explanation) in enumerate(scored):
+            if song.genre == user.favorite_genre:
+                scored[i] = (song, score * 0.5, explanation + "\n(explore penalty: -50%)")
+
     scored.sort(key=lambda x: x[1], reverse=True)
+
     return scored[:k]
