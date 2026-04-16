@@ -7,6 +7,15 @@ from dataclasses import dataclass
 class Mode(Enum):
     DEFAULT = "default"
     EXPLORE = "explore"
+    DIVERSE = "diverse"
+
+
+MODE_DESCRIPTIONS = {
+    Mode.DEFAULT: "closest matches based on score",
+    Mode.EXPLORE: "diverse recommendations by penalizing favorite genre",
+    Mode.DIVERSE: "unique artists and genres in results",
+}
+
 
 
 @dataclass
@@ -103,15 +112,35 @@ def recommend_songs(user: UserProfile, songs: List[Song], k: int = 5, mode: Mode
     scored = []
     for song in songs:
         score, reasons = score_song(user, song)
-        explanation = "\n".join(["", *reasons])
-        scored.append((song, score, explanation))
+        scored.append((song, score, reasons))
 
     if mode == Mode.EXPLORE:
-        # Penalize songs that match the user's genre to surface diverse results
-        for i, (song, score, explanation) in enumerate(scored):
+        # Penalize songs that match the user's genre to surface new results
+        for i, (song, score, reasons) in enumerate(scored):
             if song.genre == user.favorite_genre:
-                scored[i] = (song, score * 0.5, explanation + "\n(explore penalty: -50%)")
+                reasons.append(f"-{ score* 0.5 :.2f} (explore penalty: -50%)")
+                scored[i] = (song, score * 0.5, reasons)
+
+    if mode == Mode.DIVERSE:
+        # sort so the best matches are not the ones penalized
+        scored.sort(key=lambda x: x[1], reverse=True)
+        seen_artists = set()
+        seen_genres = set()
+        result = []
+        for song, score, reasons in scored:
+            if song.artist in seen_artists:
+                reasons.append(f"-{ score * 0.3 :.2f} (diverse penalty: repeat artist -30%)")
+                score *= 0.7
+            if song.genre in seen_genres:
+                reasons.append(f"-{ score * 0.2 :.2f} (diverse penalty: repeat genre -20%)")
+                score *= 0.8
+            seen_artists.add(song.artist)
+            seen_genres.add(song.genre)
+            result.append((song, score, reasons))
+        scored = result
 
     scored.sort(key=lambda x: x[1], reverse=True)
+
+    scored = [(song, score, "\n".join(["", *reasons])) for (song, score, reasons) in scored]
 
     return scored[:k]

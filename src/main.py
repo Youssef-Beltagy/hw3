@@ -4,15 +4,17 @@ Command line runner for the Music Recommender Simulation.
 This file helps you quickly run and test your recommender.
 """
 
-from recommender import load_songs, recommend_songs, UserProfile, Mode
+from recommender import load_songs, recommend_songs, UserProfile, Mode, MODE_DESCRIPTIONS
 from tabulate import tabulate
 import argparse
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Music Recommender Simulation")
+    mode_help = "\n".join(f"  {m.value}: {desc}" for m, desc in MODE_DESCRIPTIONS.items())
+    parser = argparse.ArgumentParser(description="Music Recommender Simulation",
+                                     formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument("--mode", choices=[m.value for m in Mode], default=Mode.DEFAULT.value,
-                        help="default: closest matches; explore: diverse recommendations by penalizing favorites")
+                        help="recommendation mode:\n" + mode_help)
     args = parser.parse_args()
     mode = Mode(args.mode)
 
