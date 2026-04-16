@@ -1,0 +1,176 @@
+
+Top recommendations:
+
+--- Profile 1 ---
++-----------------+---------------+-----------+-----------+---------+--------------------------------+
+| Title           | Artist        | Genre     | Mood      |   Score | Reasons                        |
++=================+===============+===========+===========+=========+================================+
+| Sunrise City    | Neon Echo     | pop       | happy     |    6.25 | +2.5 genre match (pop)         |
+|                 |               |           |           |         | +1.5 mood match (happy)        |
+|                 |               |           |           |         | +0.97 energy closeness         |
+|                 |               |           |           |         | +0.48 valence closeness        |
+|                 |               |           |           |         | +0.30 danceability closeness   |
+|                 |               |           |           |         | +0.5 acoustic preference match |
++-----------------+---------------+-----------+-----------+---------+--------------------------------+
+| Gym Hero        | Max Pulse     | pop       | intense   |    4.68 | +2.5 genre match (pop)         |
+|                 |               |           |           |         | +0.92 energy closeness         |
+|                 |               |           |           |         | +0.48 valence closeness        |
+|                 |               |           |           |         | +0.28 danceability closeness   |
+|                 |               |           |           |         | +0.5 acoustic preference match |
++-----------------+---------------+-----------+-----------+---------+--------------------------------+
+| Rooftop Lights  | Indigo Parade | indie pop | happy     |    3.7  | +1.5 mood match (happy)        |
+|                 |               |           |           |         | +0.91 energy closeness         |
+|                 |               |           |           |         | +0.49 valence closeness        |
+|                 |               |           |           |         | +0.29 danceability closeness   |
+|                 |               |           |           |         | +0.5 acoustic preference match |
++-----------------+---------------+-----------+-----------+---------+--------------------------------+
+| Backroad Summer | Dusty Strings | country   | happy     |    3.08 | +1.5 mood match (happy)        |
+|                 |               |           |           |         | +0.83 energy closeness         |
+|                 |               |           |           |         | +0.50 valence closeness        |
+|                 |               |           |           |         | +0.25 danceability closeness   |
++-----------------+---------------+-----------+-----------+---------+--------------------------------+
+| Neon Basement   | Ray Vox       | hip hop   | energetic |    2.23 | +1.00 energy closeness         |
+|                 |               |           |           |         | +0.47 valence closeness        |
+|                 |               |           |           |         | +0.26 danceability closeness   |
+|                 |               |           |           |         | +0.5 acoustic preference match |
++-----------------+---------------+-----------+-----------+---------+--------------------------------+
+
+--- Profile 2 ---
++---------------------+----------------+---------+---------+---------+--------------------------------+
+| Title               | Artist         | Genre   | Mood    |   Score | Reasons                        |
++=====================+================+=========+=========+=========+================================+
+| Library Rain        | Paper Lanterns | lofi    | chill   |    6.28 | +2.5 genre match (lofi)        |
+|                     |                |         |         |         | +1.5 mood match (chill)        |
+|                     |                |         |         |         | +1.00 energy closeness         |
+|                     |                |         |         |         | +0.49 valence closeness        |
+|                     |                |         |         |         | +0.29 danceability closeness   |
+|                     |                |         |         |         | +0.5 acoustic preference match |
++---------------------+----------------+---------+---------+---------+--------------------------------+
+| Midnight Coding     | LoRoom         | lofi    | chill   |    6.2  | +2.5 genre match (lofi)        |
+|                     |                |         |         |         | +1.5 mood match (chill)        |
+|                     |                |         |         |         | +0.93 energy closeness         |
+|                     |                |         |         |         | +0.49 valence closeness        |
+|                     |                |         |         |         | +0.28 danceability closeness   |
+|                     |                |         |         |         | +0.5 acoustic preference match |
++---------------------+----------------+---------+---------+---------+--------------------------------+
+| Focus Flow          | LoRoom         | lofi    | focused |    4.73 | +2.5 genre match (lofi)        |
+|                     |                |         |         |         | +0.95 energy closeness         |
+|                     |                |         |         |         | +0.49 valence closeness        |
+|                     |                |         |         |         | +0.29 danceability closeness   |
+|                     |                |         |         |         | +0.5 acoustic preference match |
++---------------------+----------------+---------+---------+---------+--------------------------------+
+| Spacewalk Thoughts  | Orbit Bloom    | ambient | chill   |    3.65 | +1.5 mood match (chill)        |
+|                     |                |         |         |         | +0.93 energy closeness         |
+|                     |                |         |         |         | +0.46 valence closeness        |
+|                     |                |         |         |         | +0.26 danceability closeness   |
+|                     |                |         |         |         | +0.5 acoustic preference match |
++---------------------+----------------+---------+---------+---------+--------------------------------+
+| Coffee Shop Stories | Slow Stereo    | jazz    | relaxed |    2.21 | +0.98 energy closeness         |
+|                     |                |         |         |         | +0.43 valence closeness        |
+|                     |                |         |         |         | +0.30 danceability closeness   |
+|                     |                |         |         |         | +0.5 acoustic preference match |
++---------------------+----------------+---------+---------+---------+--------------------------------+
+
+--- Profile 3 ---
++------------------+-----------+------------+---------+---------+--------------------------------+
+| Title            | Artist    | Genre      | Mood    |   Score | Reasons                        |
++==================+===========+============+=========+=========+================================+
+| Storm Runner     | Voltline  | rock       | intense |    6.26 | +2.5 genre match (rock)        |
+|                  |           |            |         |         | +1.5 mood match (intense)      |
+|                  |           |            |         |         | +0.99 energy closeness         |
+|                  |           |            |         |         | +0.48 valence closeness        |
+|                  |           |            |         |         | +0.29 danceability closeness   |
+|                  |           |            |         |         | +0.5 acoustic preference match |
++------------------+-----------+------------+---------+---------+--------------------------------+
+| Bass Cathedral   | Voltline  | electronic | intense |    3.69 | +1.5 mood match (intense)      |
+|                  |           |            |         |         | +0.95 energy closeness         |
+|                  |           |            |         |         | +0.48 valence closeness        |
+|                  |           |            |         |         | +0.26 danceability closeness   |
+|                  |           |            |         |         | +0.5 acoustic preference match |
++------------------+-----------+------------+---------+---------+--------------------------------+
+| Concrete Jungle  | Ray Vox   | hip hop    | intense |    3.68 | +1.5 mood match (intense)      |
+|                  |           |            |         |         | +0.98 energy closeness         |
+|                  |           |            |         |         | +0.46 valence closeness        |
+|                  |           |            |         |         | +0.24 danceability closeness   |
+|                  |           |            |         |         | +0.5 acoustic preference match |
++------------------+-----------+------------+---------+---------+--------------------------------+
+| Gym Hero         | Max Pulse | pop        | intense |    3.56 | +1.5 mood match (intense)      |
+|                  |           |            |         |         | +0.97 energy closeness         |
+|                  |           |            |         |         | +0.34 valence closeness        |
+|                  |           |            |         |         | +0.25 danceability closeness   |
+|                  |           |            |         |         | +0.5 acoustic preference match |
++------------------+-----------+------------+---------+---------+--------------------------------+
+| Night Drive Loop | Neon Echo | synthwave  | moody   |    2.12 | +0.85 energy closeness         |
+|                  |           |            |         |         | +0.48 valence closeness        |
+|                  |           |            |         |         | +0.29 danceability closeness   |
+|                  |           |            |         |         | +0.5 acoustic preference match |
++------------------+-----------+------------+---------+---------+--------------------------------+
+
+--- Profile 4 ---
++---------------------+----------------+-----------+---------+---------+--------------------------------+
+| Title               | Artist         | Genre     | Mood    |   Score | Reasons                        |
++=====================+================+===========+=========+=========+================================+
+| Coffee Shop Stories | Slow Stereo    | jazz      | relaxed |    6.26 | +2.5 genre match (jazz)        |
+|                     |                |           |         |         | +1.5 mood match (relaxed)      |
+|                     |                |           |         |         | +0.98 energy closeness         |
+|                     |                |           |         |         | +0.49 valence closeness        |
+|                     |                |           |         |         | +0.29 danceability closeness   |
+|                     |                |           |         |         | +0.5 acoustic preference match |
++---------------------+----------------+-----------+---------+---------+--------------------------------+
+| Campfire Stories    | Dusty Strings  | country   | relaxed |    3.74 | +1.5 mood match (relaxed)      |
+|                     |                |           |         |         | +0.98 energy closeness         |
+|                     |                |           |         |         | +0.48 valence closeness        |
+|                     |                |           |         |         | +0.28 danceability closeness   |
+|                     |                |           |         |         | +0.5 acoustic preference match |
++---------------------+----------------+-----------+---------+---------+--------------------------------+
+| Golden Hour         | Slow Stereo    | indie pop | relaxed |    3.66 | +1.5 mood match (relaxed)      |
+|                     |                |           |         |         | +0.90 energy closeness         |
+|                     |                |           |         |         | +0.47 valence closeness        |
+|                     |                |           |         |         | +0.28 danceability closeness   |
+|                     |                |           |         |         | +0.5 acoustic preference match |
++---------------------+----------------+-----------+---------+---------+--------------------------------+
+| Quiet Morning       | Orbit Bloom    | ambient   | relaxed |    3.6  | +1.5 mood match (relaxed)      |
+|                     |                |           |         |         | +0.87 energy closeness         |
+|                     |                |           |         |         | +0.49 valence closeness        |
+|                     |                |           |         |         | +0.24 danceability closeness   |
+|                     |                |           |         |         | +0.5 acoustic preference match |
++---------------------+----------------+-----------+---------+---------+--------------------------------+
+| Library Rain        | Paper Lanterns | lofi      | chill   |    2.22 | +1.00 energy closeness         |
+|                     |                |           |         |         | +0.44 valence closeness        |
+|                     |                |           |         |         | +0.28 danceability closeness   |
+|                     |                |           |         |         | +0.5 acoustic preference match |
++---------------------+----------------+-----------+---------+---------+--------------------------------+
+
+--- Profile 5 ---
++----------------+----------------+------------+---------+---------+--------------------------------+
+| Title          | Artist         | Genre      | Mood    |   Score | Reasons                        |
++================+================+============+=========+=========+================================+
+| Gym Hero       | Max Pulse      | pop        | intense |    4.54 | +2.5 genre match (pop)         |
+|                |                |            |         |         | +0.98 energy closeness         |
+|                |                |            |         |         | +0.27 valence closeness        |
+|                |                |            |         |         | +0.29 danceability closeness   |
+|                |                |            |         |         | +0.5 acoustic preference match |
++----------------+----------------+------------+---------+---------+--------------------------------+
+| Sunrise City   | Neon Echo      | pop        | happy   |    4.38 | +2.5 genre match (pop)         |
+|                |                |            |         |         | +0.87 energy closeness         |
+|                |                |            |         |         | +0.23 valence closeness        |
+|                |                |            |         |         | +0.28 danceability closeness   |
+|                |                |            |         |         | +0.5 acoustic preference match |
++----------------+----------------+------------+---------+---------+--------------------------------+
+| Velvet Dusk    | Neon Echo      | synthwave  | sad     |    3.36 | +1.5 mood match (sad)          |
+|                |                |            |         |         | +0.65 energy closeness         |
+|                |                |            |         |         | +0.46 valence closeness        |
+|                |                |            |         |         | +0.25 danceability closeness   |
+|                |                |            |         |         | +0.5 acoustic preference match |
++----------------+----------------+------------+---------+---------+--------------------------------+
+| Rainy Window   | Paper Lanterns | classical  | sad     |    2.36 | +1.5 mood match (sad)          |
+|                |                |            |         |         | +0.25 energy closeness         |
+|                |                |            |         |         | +0.49 valence closeness        |
+|                |                |            |         |         | +0.12 danceability closeness   |
++----------------+----------------+------------+---------+---------+--------------------------------+
+| Bass Cathedral | Voltline       | electronic | intense |    2.24 | +1.00 energy closeness         |
+|                |                |            |         |         | +0.44 valence closeness        |
+|                |                |            |         |         | +0.30 danceability closeness   |
+|                |                |            |         |         | +0.5 acoustic preference match |
++----------------+----------------+------------+---------+---------+--------------------------------+
+

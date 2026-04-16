@@ -1,0 +1,189 @@
+
+Top recommendations:
+
+--- Profile 1 ---
++-----------------+---------------+-----------+-----------+---------+---------------------------------------+
+| Title           | Artist        | Genre     | Mood      |   Score | Reasons                               |
++=================+===============+===========+===========+=========+=======================================+
+| Sunrise City    | Neon Echo     | pop       | happy     |    8.2  | +3.0 mood match (happy)               |
+|                 |               |           |           |         | +1.94 energy closeness                |
+|                 |               |           |           |         | +0.96 valence closeness               |
+|                 |               |           |           |         | +0.5 genre match (pop)                |
+|                 |               |           |           |         | +1.00 mood tags (euphoric, uplifting) |
+|                 |               |           |           |         | +0.30 instrumentalness closeness      |
+|                 |               |           |           |         | +0.5 lyrical theme match (party)      |
++-----------------+---------------+-----------+-----------+---------+---------------------------------------+
+| Rooftop Lights  | Indigo Parade | indie pop | happy     |    6.6  | +3.0 mood match (happy)               |
+|                 |               |           |           |         | +1.82 energy closeness                |
+|                 |               |           |           |         | +0.99 valence closeness               |
+|                 |               |           |           |         | +0.50 mood tags (uplifting)           |
+|                 |               |           |           |         | +0.29 instrumentalness closeness      |
++-----------------+---------------+-----------+-----------+---------+---------------------------------------+
+| Backroad Summer | Dusty Strings | country   | happy     |    6.45 | +3.0 mood match (happy)               |
+|                 |               |           |           |         | +1.66 energy closeness                |
+|                 |               |           |           |         | +1.00 valence closeness               |
+|                 |               |           |           |         | +0.50 mood tags (uplifting)           |
+|                 |               |           |           |         | +0.28 instrumentalness closeness      |
++-----------------+---------------+-----------+-----------+---------+---------------------------------------+
+| Gym Hero        | Max Pulse     | pop       | intense   |    4.59 | +1.84 energy closeness                |
+|                 |               |           |           |         | +0.97 valence closeness               |
+|                 |               |           |           |         | +0.5 genre match (pop)                |
+|                 |               |           |           |         | +0.50 mood tags (euphoric)            |
+|                 |               |           |           |         | +0.28 instrumentalness closeness      |
+|                 |               |           |           |         | +0.5 lyrical theme match (party)      |
++-----------------+---------------+-----------+-----------+---------+---------------------------------------+
+| Neon Basement   | Ray Vox       | hip hop   | energetic |    4.22 | +2.00 energy closeness                |
+|                 |               |           |           |         | +0.94 valence closeness               |
+|                 |               |           |           |         | +0.50 mood tags (euphoric)            |
+|                 |               |           |           |         | +0.28 instrumentalness closeness      |
+|                 |               |           |           |         | +0.5 lyrical theme match (party)      |
++-----------------+---------------+-----------+-----------+---------+---------------------------------------+
+
+--- Profile 2 ---
++--------------------+----------------+-----------+---------+---------+------------------------------------------+
+| Title              | Artist         | Genre     | Mood    |   Score | Reasons                                  |
++====================+================+===========+=========+=========+==========================================+
+| Midnight Coding    | LoRoom         | lofi      | chill   |    8.12 | +3.0 mood match (chill)                  |
+|                    |                |           |         |         | +1.86 energy closeness                   |
+|                    |                |           |         |         | +0.98 valence closeness                  |
+|                    |                |           |         |         | +0.5 genre match (lofi)                  |
+|                    |                |           |         |         | +1.00 mood tags (dreamy, calm)           |
+|                    |                |           |         |         | +0.28 instrumentalness closeness         |
+|                    |                |           |         |         | +0.5 lyrical theme match (introspection) |
++--------------------+----------------+-----------+---------+---------+------------------------------------------+
+| Library Rain       | Paper Lanterns | lofi      | chill   |    7.28 | +3.0 mood match (chill)                  |
+|                    |                |           |         |         | +2.00 energy closeness                   |
+|                    |                |           |         |         | +0.98 valence closeness                  |
+|                    |                |           |         |         | +0.5 genre match (lofi)                  |
+|                    |                |           |         |         | +0.50 mood tags (calm)                   |
+|                    |                |           |         |         | +0.30 instrumentalness closeness         |
++--------------------+----------------+-----------+---------+---------+------------------------------------------+
+| Spacewalk Thoughts | Orbit Bloom    | ambient   | chill   |    7.04 | +3.0 mood match (chill)                  |
+|                    |                |           |         |         | +1.86 energy closeness                   |
+|                    |                |           |         |         | +0.93 valence closeness                  |
+|                    |                |           |         |         | +0.50 mood tags (dreamy)                 |
+|                    |                |           |         |         | +0.26 instrumentalness closeness         |
+|                    |                |           |         |         | +0.5 lyrical theme match (introspection) |
++--------------------+----------------+-----------+---------+---------+------------------------------------------+
+| Focus Flow         | LoRoom         | lofi      | focused |    4.67 | +1.90 energy closeness                   |
+|                    |                |           |         |         | +0.99 valence closeness                  |
+|                    |                |           |         |         | +0.5 genre match (lofi)                  |
+|                    |                |           |         |         | +0.50 mood tags (calm)                   |
+|                    |                |           |         |         | +0.29 instrumentalness closeness         |
+|                    |                |           |         |         | +0.5 lyrical theme match (introspection) |
++--------------------+----------------+-----------+---------+---------+------------------------------------------+
+| Velvet Dusk        | Neon Echo      | synthwave | sad     |    3.52 | +1.50 energy closeness                   |
+|                    |                |           |         |         | +0.80 valence closeness                  |
+|                    |                |           |         |         | +0.50 mood tags (dreamy)                 |
+|                    |                |           |         |         | +0.22 instrumentalness closeness         |
+|                    |                |           |         |         | +0.5 lyrical theme match (introspection) |
++--------------------+----------------+-----------+---------+---------+------------------------------------------+
+
+--- Profile 3 ---
++-----------------+-----------+------------+-----------+---------+----------------------------------------+
+| Title           | Artist    | Genre      | Mood      |   Score | Reasons                                |
++=================+===========+============+===========+=========+========================================+
+| Storm Runner    | Voltline  | rock       | intense   |    8.25 | +3.0 mood match (intense)              |
+|                 |           |            |           |         | +1.98 energy closeness                 |
+|                 |           |            |           |         | +0.97 valence closeness                |
+|                 |           |            |           |         | +0.5 genre match (rock)                |
+|                 |           |            |           |         | +1.00 mood tags (powerful, aggressive) |
+|                 |           |            |           |         | +0.30 instrumentalness closeness       |
+|                 |           |            |           |         | +0.5 lyrical theme match (rebellion)   |
++-----------------+-----------+------------+-----------+---------+----------------------------------------+
+| Concrete Jungle | Ray Vox   | hip hop    | intense   |    7.66 | +3.0 mood match (intense)              |
+|                 |           |            |           |         | +1.96 energy closeness                 |
+|                 |           |            |           |         | +0.93 valence closeness                |
+|                 |           |            |           |         | +1.00 mood tags (powerful, aggressive) |
+|                 |           |            |           |         | +0.27 instrumentalness closeness       |
+|                 |           |            |           |         | +0.5 lyrical theme match (rebellion)   |
++-----------------+-----------+------------+-----------+---------+----------------------------------------+
+| Bass Cathedral  | Voltline  | electronic | intense   |    6.45 | +3.0 mood match (intense)              |
+|                 |           |            |           |         | +1.90 energy closeness                 |
+|                 |           |            |           |         | +0.97 valence closeness                |
+|                 |           |            |           |         | +0.50 mood tags (aggressive)           |
+|                 |           |            |           |         | +0.07 instrumentalness closeness       |
++-----------------+-----------+------------+-----------+---------+----------------------------------------+
+| Gym Hero        | Max Pulse | pop        | intense   |    6.39 | +3.0 mood match (intense)              |
+|                 |           |            |           |         | +1.94 energy closeness                 |
+|                 |           |            |           |         | +0.68 valence closeness                |
+|                 |           |            |           |         | +0.50 mood tags (aggressive)           |
+|                 |           |            |           |         | +0.27 instrumentalness closeness       |
++-----------------+-----------+------------+-----------+---------+----------------------------------------+
+| Neon Basement   | Ray Vox   | hip hop    | energetic |    3.38 | +1.90 energy closeness                 |
+|                 |           |            |           |         | +0.71 valence closeness                |
+|                 |           |            |           |         | +0.50 mood tags (powerful)             |
+|                 |           |            |           |         | +0.27 instrumentalness closeness       |
++-----------------+-----------+------------+-----------+---------+----------------------------------------+
+
+--- Profile 4 ---
++---------------------+---------------+-----------+---------+---------+-----------------------------------+
+| Title               | Artist        | Genre     | Mood    |   Score | Reasons                           |
++=====================+===============+===========+=========+=========+===================================+
+| Coffee Shop Stories | Slow Stereo   | jazz      | relaxed |    8.25 | +3.0 mood match (relaxed)         |
+|                     |               |           |         |         | +1.96 energy closeness            |
+|                     |               |           |         |         | +0.99 valence closeness           |
+|                     |               |           |         |         | +0.5 genre match (jazz)           |
+|                     |               |           |         |         | +1.00 mood tags (warm, nostalgic) |
+|                     |               |           |         |         | +0.30 instrumentalness closeness  |
+|                     |               |           |         |         | +0.5 lyrical theme match (love)   |
++---------------------+---------------+-----------+---------+---------+-----------------------------------+
+| Golden Hour         | Slow Stereo   | indie pop | relaxed |    7.48 | +3.0 mood match (relaxed)         |
+|                     |               |           |         |         | +1.80 energy closeness            |
+|                     |               |           |         |         | +0.94 valence closeness           |
+|                     |               |           |         |         | +1.00 mood tags (warm, nostalgic) |
+|                     |               |           |         |         | +0.24 instrumentalness closeness  |
+|                     |               |           |         |         | +0.5 lyrical theme match (love)   |
++---------------------+---------------+-----------+---------+---------+-----------------------------------+
+| Campfire Stories    | Dusty Strings | country   | relaxed |    7.2  | +3.0 mood match (relaxed)         |
+|                     |               |           |         |         | +1.96 energy closeness            |
+|                     |               |           |         |         | +0.97 valence closeness           |
+|                     |               |           |         |         | +1.00 mood tags (warm, nostalgic) |
+|                     |               |           |         |         | +0.27 instrumentalness closeness  |
++---------------------+---------------+-----------+---------+---------+-----------------------------------+
+| Quiet Morning       | Orbit Bloom   | ambient   | relaxed |    5.85 | +3.0 mood match (relaxed)         |
+|                     |               |           |         |         | +1.74 energy closeness            |
+|                     |               |           |         |         | +0.98 valence closeness           |
+|                     |               |           |         |         | +0.13 instrumentalness closeness  |
++---------------------+---------------+-----------+---------+---------+-----------------------------------+
+| Late Night Texts    | Indigo Parade | r&b       | moody   |    3.71 | +1.60 energy closeness            |
+|                     |               |           |         |         | +0.91 valence closeness           |
+|                     |               |           |         |         | +0.50 mood tags (nostalgic)       |
+|                     |               |           |         |         | +0.20 instrumentalness closeness  |
+|                     |               |           |         |         | +0.5 lyrical theme match (love)   |
++---------------------+---------------+-----------+---------+---------+-----------------------------------+
+
+--- Profile 5 ---
++------------------+----------------+-----------+---------+---------+------------------------------------------+
+| Title            | Artist         | Genre     | Mood    |   Score | Reasons                                  |
++==================+================+===========+=========+=========+==========================================+
+| Velvet Dusk      | Neon Echo      | synthwave | sad     |    6.37 | +3.0 mood match (sad)                    |
+|                  |                |           |         |         | +1.30 energy closeness                   |
+|                  |                |           |         |         | +0.92 valence closeness                  |
+|                  |                |           |         |         | +0.50 mood tags (melancholic)            |
+|                  |                |           |         |         | +0.15 instrumentalness closeness         |
+|                  |                |           |         |         | +0.5 lyrical theme match (introspection) |
++------------------+----------------+-----------+---------+---------+------------------------------------------+
+| Rainy Window     | Paper Lanterns | classical | sad     |    5.02 | +3.0 mood match (sad)                    |
+|                  |                |           |         |         | +0.50 energy closeness                   |
+|                  |                |           |         |         | +0.98 valence closeness                  |
+|                  |                |           |         |         | +0.50 mood tags (melancholic)            |
+|                  |                |           |         |         | +0.04 instrumentalness closeness         |
++------------------+----------------+-----------+---------+---------+------------------------------------------+
+| Night Drive Loop | Neon Echo      | synthwave | moody   |    3.54 | +1.60 energy closeness                   |
+|                  |                |           |         |         | +0.81 valence closeness                  |
+|                  |                |           |         |         | +0.50 mood tags (melancholic)            |
+|                  |                |           |         |         | +0.14 instrumentalness closeness         |
+|                  |                |           |         |         | +0.5 lyrical theme match (introspection) |
++------------------+----------------+-----------+---------+---------+------------------------------------------+
+| Storm Runner     | Voltline       | rock      | intense |    3.51 | +1.92 energy closeness                   |
+|                  |                |           |         |         | +0.82 valence closeness                  |
+|                  |                |           |         |         | +0.50 mood tags (powerful)               |
+|                  |                |           |         |         | +0.27 instrumentalness closeness         |
++------------------+----------------+-----------+---------+---------+------------------------------------------+
+| Concrete Jungle  | Ray Vox        | hip hop   | intense |    3.44 | +1.86 energy closeness                   |
+|                  |                |           |         |         | +0.78 valence closeness                  |
+|                  |                |           |         |         | +0.50 mood tags (powerful)               |
+|                  |                |           |         |         | +0.30 instrumentalness closeness         |
++------------------+----------------+-----------+---------+---------+------------------------------------------+
+

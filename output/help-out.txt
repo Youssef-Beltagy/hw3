@@ -1,0 +1,13 @@
+usage: main.py [-h] [--mode {default,explore,diverse,mood,advanced}]
+
+Music Recommender Simulation
+
+options:
+  -h, --help            show this help message and exit
+  --mode {default,explore,diverse,mood,advanced}
+                        recommendation mode:
+                          default: closest matches based on score
+                          explore: diverse recommendations by penalizing favorite genre
+                          diverse: unique artists and genres in results
+                          mood: prioritize mood and energy over genre
+                          advanced: Advanced recommendation mode includes additional attributes like song popularity or release decade
