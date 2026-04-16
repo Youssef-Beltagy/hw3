@@ -25,7 +25,19 @@ def main() -> None:
         # Profile C: Intense rock listener (workout / driving)
         UserProfile(
             favorite_genre="rock", favorite_mood="intense", target_energy=0.90,
-            likes_acoustic=False, target_valence=0.45, target_danceability=0.70)
+            likes_acoustic=False, target_valence=0.45, target_danceability=0.70),
+
+        # Profile D: Mellow jazz listener (evening wind-down)
+        UserProfile(
+            favorite_genre="jazz", favorite_mood="relaxed", target_energy=0.35,
+            likes_acoustic=True, target_valence=0.72, target_danceability=0.50),
+
+        # Profile E (adversarial): High energy + sad mood + wants danceability
+        # These preferences conflict — sad songs are rarely high-energy or danceable.
+        # Tests whether the system blindly adds up scores or produces nonsensical results.
+        UserProfile(
+            favorite_genre="pop", favorite_mood="sad", target_energy=0.95,
+            likes_acoustic=False, target_valence=0.30, target_danceability=0.85)
     ]
 
     recommendations = [recommend_songs(user_pref, songs, k=5) for user_pref in profiles]
